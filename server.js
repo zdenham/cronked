@@ -12,7 +12,6 @@ const hooksQueue = new Queue('hooks');
 
 const errorHandlingMiddleware = (error, req, res, next) => {
   if (error) {
-    console.log('RUNNING MIDDLEWARE');
     res.status(error.status || 500).send({
       error: error.message || 'Internal Server Error',
     });
@@ -23,7 +22,7 @@ app.use(bodyParser.json({ type: 'application/json' }));
 
 app.post('/v1/hooks', async (req, res, next) => {
   try {
-    const { every, limit, cron, url, delay, body } = req.body;
+    const { every, limit, cron, hookUrl, delay, hookBody } = req.body;
 
     // validation
     if (!cron && !every) {
@@ -43,7 +42,7 @@ app.post('/v1/hooks', async (req, res, next) => {
     // add repeatable sequence to redis queue
     await hooksQueue.add(
       id,
-      { url, body },
+      { hookUrl, hookBody },
       {
         delay,
         repeat: {
@@ -67,5 +66,5 @@ app.post('/v1/hooks', async (req, res, next) => {
 app.use(errorHandlingMiddleware);
 
 app.listen(port, () => {
-  console.log(`Cronked listening at http://localhost:${port}`);
+  console.log(`Cronked server listening at http://localhost:${port}`);
 });
