@@ -8,6 +8,4 @@ COPY . /usr/src
 
 RUN yarn install --production=true
 
-EXPOSE 3500
-
-CMD ["yarn", "run", "server"]
+CMD ["yarn", "run", "start"]

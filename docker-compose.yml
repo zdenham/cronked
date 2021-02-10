@@ -7,6 +7,8 @@ services:
       context: .
     ports:
       - '3500:3500'
+    expose:
+      - 3500
     command: yarn run server
   worker:
     environment:
