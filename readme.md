@@ -41,8 +41,6 @@ For now, there is just one endpoint: a `POST` request to `/v1/hooks`
 
 ## Development
 
-**Note**: Redis must be running locally for the dev environment to work, you can see instructions to get redis up and running [here](https://redis.io/topics/quickstart).
-
 In dev, both the cronked Server and Worker will run concurrently and interact with your local redis server.
 
 ```
@@ -52,7 +50,21 @@ yarn install
 yarn dev
 ```
 
-## Deploy Your Own Instance (via Heroku)
+**Note**: Redis must be running locally for the dev environment to work, you can see instructions to get redis up and running [here](https://redis.io/topics/quickstart).
+
+Alternatively, to run a containerized version of cronked and redis, simply run `docker-compouse up --build`.
+
+The server will be maid available on http://localhost:3500
+
+## Deployment (Via Heroku)
+
+The quickest & scrappiest way to deploy Cronked is via Heroku. For simplicity you can run the worker and server on the same node and utilize Heroku's Redis add on. Here are some deployment instructions to get up and running:
+
+1. `heroku apps:create <app_name>`
+2. Navigate to https://dashboard.heroku.com > <app_name> > Resources
+3. In the add ons section, search "Heroku Redis," select the add on and confirm
+4. `heroku git:remote -a <app_name>`
+5. `git push heroku main`
 
 ## TODO
 
