@@ -58,7 +58,7 @@ The server will be made available at http://localhost:3500
 
 ## Deploy Your Own Instance
 
-The quickest & scrappiest way to deploy Cronked is via the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli). For simplicity you can run the worker and server on the same node and utilize Heroku's Redis add on. Here are some deployment instructions to get up and running:
+The quickest & scrappiest way to deploy Cronked is via the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli). For simplicity you can run the worker and server concurrently on the same node and utilize Heroku's Redis add on. Here are some deployment instructions to get up and running:
 
 1. `git clone https://github.com/zdenham/cronked.git && cd cronked`
 2. `heroku login`
