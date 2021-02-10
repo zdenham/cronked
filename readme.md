@@ -58,14 +58,15 @@ The server will be maid available on http://localhost:3500
 
 ## Deployment (Via Heroku)
 
-The quickest & scrappiest way to deploy Cronked is via Heroku. For simplicity you can run the worker and server on the same node and utilize Heroku's Redis add on. Here are some deployment instructions to get up and running:
+The quickest & scrappiest way to deploy Cronked is via the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli). For simplicity you can run the worker and server on the same node and utilize Heroku's Redis add on. Here are some deployment instructions to get up and running:
 
 1. `git clone https://github.com/zdenham/cronked.git && cd cronked`
-2. `heroku apps:create [app_name]`
-3. Navigate to https://dashboard.heroku.com > [app_name] > Resources
-4. In the add ons section, search "Heroku Redis," select the add on and confirm
-5. `heroku git:remote -a [app_name]`
-6. `git push heroku main`
+2. `heroku login`
+3. `heroku apps:create [app_name]`
+4. Navigate to https://dashboard.heroku.com > [app_name] > Resources
+5. In the add ons section, search "Heroku Redis," select the add on and confirm
+6. `heroku git:remote -a [app_name]`
+7. `git push heroku main`
 
 ## TODO
 
