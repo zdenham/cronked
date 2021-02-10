@@ -54,7 +54,7 @@ yarn dev
 
 Alternatively, to run a containerized version of cronked and redis, simply run `docker-compouse up --build`.
 
-The server will be maid available on http://localhost:3500
+The server will be made available at http://localhost:3500
 
 ## Deploy Your Own Instance
 
