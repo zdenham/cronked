@@ -13,6 +13,7 @@ const hooksQueue = new Queue('hooks');
 const errorHandlingMiddleware = (error, req, res, next) => {
   if (error) {
     res.status(error.status || 500).send({
+      status: 'failed',
       error: error.message || 'Internal Server Error',
     });
   }
@@ -33,7 +34,7 @@ app.post('/v1/hooks', async (req, res, next) => {
       throw new Error('Bad Request: Cron and every cannot be used together');
     }
 
-    if (!validUrl(url)) {
+    if (!validUrl(hookUrl)) {
       throw new Error('Bad Request: A valid url must be provided for the hook');
     }
 
@@ -53,7 +54,7 @@ app.post('/v1/hooks', async (req, res, next) => {
       }
     );
 
-    res.status(200).send(JSON.stringify({ status: 'success', url, id }));
+    res.status(200).send(JSON.stringify({ status: 'succeeded', hookUrl, id }));
   } catch (e) {
     // fire error handling middleware
     if (e.message.indexOf('Bad Request') !== -1) {

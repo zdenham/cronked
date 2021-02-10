@@ -4,7 +4,7 @@ const { Worker } = require('bullmq');
 // pluck scheduled jobs from the redis queue and fire off webhook
 new Worker('hooks', async ({ data }) => {
   const { hookUrl, hookBody } = data;
-  const res = await fetch(url, {
+  const res = await fetch(hookUrl, {
     method: 'post',
     body: hookBody ? JSON.stringify(hookBody) : undefined,
     headers: { 'Content-Type': 'application/json' },
