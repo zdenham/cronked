@@ -4,7 +4,7 @@ Cronked is an API to schedule recurring tasks via webhooks. It's particularly us
 
 ## Why Cronked?
 
-Originally, I was using CloudWatch Events for a similar use case (scheduling recurring hooks), but CWE maxes out at 5k rules. If you need to schedule a significant number of recurring jobs, you'll need to roll your own solution: hence, Cronked. The Cronked API is also fully open sourced, and easy to deploy and consume, requiring far less tinkering than CWE and other options to get up and running!
+Originally, I was using CloudWatch Events for a similar use case (scheduling recurring hooks), but CWE maxes out at 5k rules. If you need to schedule a significant number of recurring jobs, you'll need to roll your own solution: hence, Cronked. The Cronked API is also fully open sourced and trivial to deploy and consume, requiring far less tinkering than CWE and other options to get up and running!
 
 ## Schedule Your First Sequence
 
