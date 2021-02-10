@@ -4,7 +4,7 @@ Cronked is an API to schedule recurring tasks via webhooks. It's particularly us
 
 ## Why Cronked?
 
-Originally, I was using CloudWatch Events for a similar use case (scheduling recurring hooks), but CWE maxes out at 5k rules. If you need to schedule a significant number of recurring jobs, you'll need to roll your own solution: hence, Cronked. The Cronked API is also easy to deploy and consume, requiring far less tinkering than CWE to get up and running.
+Originally, I was using CloudWatch Events for a similar use case (scheduling recurring hooks), but CWE maxes out at 5k rules. If you need to schedule a significant number of recurring jobs, you'll need to roll your own solution: hence, Cronked. The Cronked API is also easy to deploy and consume, requiring far less tinkering than CWE to get up and running after cloning the repo.
 
 ## Schedule Your First Sequence
 
@@ -60,11 +60,12 @@ The server will be maid available on http://localhost:3500
 
 The quickest & scrappiest way to deploy Cronked is via Heroku. For simplicity you can run the worker and server on the same node and utilize Heroku's Redis add on. Here are some deployment instructions to get up and running:
 
-1. `heroku apps:create <app_name>`
-2. Navigate to https://dashboard.heroku.com > <app_name> > Resources
-3. In the add ons section, search "Heroku Redis," select the add on and confirm
-4. `heroku git:remote -a <app_name>`
-5. `git push heroku main`
+1. `git clone https://github.com/zdenham/cronked.git && cd cronked`
+2. `heroku apps:create [app_name]`
+3. Navigate to https://dashboard.heroku.com > [app_name] > Resources
+4. In the add ons section, search "Heroku Redis," select the add on and confirm
+5. `heroku git:remote -a [app_name]`
+6. `git push heroku main`
 
 ## TODO
 
