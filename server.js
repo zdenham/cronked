@@ -4,7 +4,9 @@ const { v4 } = require('uuid');
 const validUrl = require('./lib/validUrl');
 const Redis = require('ioredis');
 const { Queue, QueueScheduler } = require('bullmq');
-const connection = new Redis({ host: process.env.REDIS_HOST });
+const connection = new Redis(
+  process.env.REDIS_URL || { host: process.env.REDIS_HOST }
+);
 
 const app = express();
 const port = process.env.PORT || 3500;

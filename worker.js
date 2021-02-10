@@ -1,7 +1,9 @@
 const fetch = require('node-fetch');
 const Redis = require('ioredis');
 const { Worker } = require('bullmq');
-const connection = new Redis({ host: process.env.REDIS_HOST });
+const connection = new Redis(
+  process.env.REDIS_URL || { host: process.env.REDIS_HOST }
+);
 
 // pluck scheduled jobs from the redis queue and fire off webhook
 new Worker(
