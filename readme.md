@@ -12,12 +12,12 @@ The following will schedule a recurring `POST` request to 'https://example.com/a
 
 ```
 curl --request POST \
-  --url https://api.cronked.io/v1/hooks \
+  --url https://cronked.herokuapp.com/v1/hooks \
   --header 'Content-Type: application/json' \
   --data '{
     "delay": 5000,
-    "every": 10000, // repeat interval ms
-    "limit": 10, // max occurances
+    "every": 10000,
+    "limit": 10,
     "hookUrl": "https://example.com/api/path",
     "hookBody": {
       "optional_key": "optional_value"
