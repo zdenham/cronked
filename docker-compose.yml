@@ -1,0 +1,22 @@
+version: '3'
+services:
+  api:
+    environment:
+      - REDIS_HOST=redis
+    build:
+      context: .
+    ports:
+      - '3500:3500'
+    command: yarn run server
+  worker:
+    environment:
+      - REDIS_HOST=redis
+    build:
+      context: .
+    command: yarn run worker
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+    expose:
+      - 6379

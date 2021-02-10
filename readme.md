@@ -39,11 +39,11 @@ For now, there is just one endpoint: a `POST` request to `/v1/hooks`
 |cron? |String |Cron expression which specifies when to fire the webhook using [cron-parser](https://github.com/harrisiirak/cron-parser)'s "unix cron w/ optional seconds" format. **Note** cannot be used with 'every'.|
 |hookBody?|Object |Optional body to be passed by the web hook|
 
-## Deploy Your Own Instance
-
 ## Development
 
-**Note**: Redis must be running locally for the dev environment to work, you can see instructions to get redis up and running [here](https://redis.io/topics/quickstart)
+**Note**: Redis must be running locally for the dev environment to work, you can see instructions to get redis up and running [here](https://redis.io/topics/quickstart).
+
+In dev, both the cronked Server and Worker will run concurrently and interact with your local redis server.
 
 ```
 git clone https://github.com/zdenham/cronked.git
@@ -52,9 +52,11 @@ yarn install
 yarn dev
 ```
 
+## Deploy Your Own Instance (via Heroku)
+
 ## TODO
 
-- [] Authenticate via JWT
-- [] `GET` endpoint to see current status of a sequence by webhook ID
-- [] `DELETE` endpoint to cancel a given sequence
-- [] Specify logic around webhook retries / failures
+- [ ] Authentication
+- [ ] `GET` endpoint to see current status of a sequence by webhook ID
+- [ ] `DELETE` endpoint to cancel a given sequence
+- [ ] Specify logic around webhook retries / failures

@@ -2,13 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { v4 } = require('uuid');
 const validUrl = require('./lib/validUrl');
+const Redis = require('ioredis');
 const { Queue, QueueScheduler } = require('bullmq');
+const connection = new Redis({ host: process.env.REDIS_HOST });
 
 const app = express();
 const port = process.env.PORT || 3500;
 
-new QueueScheduler('hooks');
-const hooksQueue = new Queue('hooks');
+new QueueScheduler('hooks', { connection });
+const hooksQueue = new Queue('hooks', { connection });
 
 const errorHandlingMiddleware = (error, req, res, next) => {
   if (error) {
