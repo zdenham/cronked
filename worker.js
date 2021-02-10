@@ -10,7 +10,6 @@ new Worker(
   'hooks',
   async ({ data }) => {
     const { hookUrl, hookBody } = data;
-    console.log('FIRING WEBHOOK: ', hookUrl);
     const res = await fetch(hookUrl, {
       method: 'post',
       body: hookBody ? JSON.stringify(hookBody) : undefined,
