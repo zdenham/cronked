@@ -56,7 +56,7 @@ Alternatively, to run a containerized version of cronked and redis, simply run `
 
 The server will be maid available on http://localhost:3500
 
-## Deployment (Via Heroku)
+## Deploy Your Own Instance
 
 The quickest & scrappiest way to deploy Cronked is via the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli). For simplicity you can run the worker and server on the same node and utilize Heroku's Redis add on. Here are some deployment instructions to get up and running:
 
