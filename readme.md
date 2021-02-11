@@ -52,7 +52,7 @@ yarn dev
 
 **Note**: Redis must be running locally for the dev environment to work, you can see instructions to get redis up and running [here](https://redis.io/topics/quickstart).
 
-Alternatively, to run a containerized version of cronked and redis, simply run `docker-compouse up --build`.
+Alternatively, to run a containerized version of cronked and redis, simply run `docker-compose up --build`.
 
 The server will be made available at http://localhost:3500
 
