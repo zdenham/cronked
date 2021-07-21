@@ -10,6 +10,8 @@ new Worker(
   'hooks',
   async ({ data }) => {
     const { hookUrl, hookBody } = data;
+    console.log("FIRING A REQUEST TO: ", hookUrl);
+    
     const res = await fetch(hookUrl, {
       method: 'post',
       body: hookBody ? JSON.stringify(hookBody) : undefined,
