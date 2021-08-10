@@ -4,7 +4,7 @@ Cronked is an API to schedule recurring tasks via webhooks. It's particularly us
 
 ## Why Cronked?
 
-Originally, I was using CloudWatch Events for a similar use case (scheduling recurring hooks), but CWE maxes out at 5k rules. If you need to schedule a significant number of recurring jobs, you'll need to roll your own solution: hence, Cronked. The Cronked API is also easy to deploy and consume, requiring far less tinkering than CWE to get up and running after cloning the repo.
+Originally, I was using CloudWatch Events for a similar use case (scheduling recurring hooks), but CWE maxes out at 5k rules. If you need to schedule a significant number of recurring jobs, you'll need to roll your own solution: hence, Cronked. The Cronked API is also fully open sourced and trivial to deploy and consume, requiring far less tinkering than CWE and other options to get up and running!
 
 ## Schedule Your First Sequence
 
@@ -52,13 +52,13 @@ yarn dev
 
 **Note**: Redis must be running locally for the dev environment to work, you can see instructions to get redis up and running [here](https://redis.io/topics/quickstart).
 
-Alternatively, to run a containerized version of cronked and redis, simply run `docker-compouse up --build`.
+Alternatively, to run a containerized version of cronked and redis, simply run `docker-compose up --build`.
 
 The server will be made available at http://localhost:3500
 
 ## Deploy Your Own Instance
 
-The quickest & scrappiest way to deploy Cronked is via the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli). For simplicity you can run the worker and server on the same node and utilize Heroku's Redis add on. Here are some deployment instructions to get up and running:
+The quickest & scrappiest way to deploy Cronked is via the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli). For simplicity you can run the worker and server concurrently on the same node and utilize Heroku's Redis add on. Here are some deployment instructions to get up and running:
 
 1. `git clone https://github.com/zdenham/cronked.git && cd cronked`
 2. `heroku login`
